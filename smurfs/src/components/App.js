@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
+import SmurfList from './SmurfList.js';
+import { getSmurfs } from '../actions/action.js';
 
 
 import "./App.css";
@@ -8,14 +10,17 @@ import "./App.css";
 
 function App (props) {
 
-
+  console.log(props)
   
     return (
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <h1>Desiree's Smurf Village!</h1>
+        <button onClick={props.getSmurfs}>Meet Smurfs</button>
+        {props.smurfs && (
+          <div>
+            {props.smurfs.map(smurf => <SmurfList smurf={smurf}/>)}
+          </div>
+        )} 
       </div>
     );
   
@@ -23,8 +28,10 @@ function App (props) {
 
 const mapStateToProps = (state) => {
   return{
-    state,
-  }
+    smurfs: state.smurfs, 
+    error: state.error, 
+    loading: state.loading
+  };
 };
 
-export default connect(mapStateToProps, null) (App);
+export default connect(mapStateToProps, { getSmurfs }) (App);
