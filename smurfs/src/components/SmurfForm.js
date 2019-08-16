@@ -9,7 +9,7 @@ const SmurfForm = props => {
     const handleChange = (event) => {
         // console.log("Whats the name:", event.target.name);
         // console.log("Whats the value:", event.target.value);
-        // console.log("handlechange smurf:", smurf)
+        console.log("handlechange smurf:", smurf)
         setSmurf({...smurf, [event.target.name]: event.target.value});
     };
 
