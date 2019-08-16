@@ -4,16 +4,18 @@ const SmurfForm = props => {
 
     const [smurf, setSmurf] = useState({});
 
-    console.log('FormProps:', props)
+    // console.log('FormProps:', props)
 
     const handleChange = (event) => {
-        console.log("Whats the name:", event.target.name);
-        console.log("Whats the value:", event.target.value);
-        setSmurf({[event.target.name]: event.target.value});
+        // console.log("Whats the name:", event.target.name);
+        // console.log("Whats the value:", event.target.value);
+        // console.log("handlechange smurf:", smurf)
+        setSmurf({...smurf, [event.target.name]: event.target.value});
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        // console.log("handlechange smurf", smurf)
         props.addSmurfs(smurf);
         setSmurf("");
     };

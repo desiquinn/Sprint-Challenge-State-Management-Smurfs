@@ -11,7 +11,7 @@ import SmurfForm from "./SmurfForm.js";
 
 function App (props) {
 
-  console.log(props)
+  // console.log(props)
   
     return (
       <div className="App">

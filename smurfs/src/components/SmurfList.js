@@ -4,7 +4,7 @@ import React from 'react';
 
 const SmurfList = props => {
 
-    console.log('ListProps:', props)
+    // console.log('ListProps:', props)
     return (
         <div>
             <h2>Name:{props.smurf.name}</h2>
