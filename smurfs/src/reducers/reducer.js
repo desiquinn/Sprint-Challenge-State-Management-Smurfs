@@ -1,4 +1,10 @@
-import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE } from '../actions/action.js';
+import { FETCH_SMURFS_START, 
+    FETCH_SMURFS_SUCCESS, 
+    FETCH_SMURFS_FAILURE,
+    POST_SMURFS_START, 
+    POST_SMURFS_SUCCESS, 
+    POST_SMURFS_FAILURE,  
+ } from '../actions/action.js';
 
 
 export const initialState = {
@@ -24,6 +30,26 @@ export const reducer = (state = initialState, action) => {
                 smurfs: action.payload
             };
         case FETCH_SMURFS_FAILURE:
+            return {
+                ...state, 
+                error: "",
+                loading: false,
+                smurfs: action.payload,
+            };
+        case POST_SMURFS_START:
+            return {
+                ...state,
+                error: "",
+                loading: true, 
+            };
+        case POST_SMURFS_SUCCESS:
+            return {
+                ...state, 
+                error: "",
+                loading: false,
+                smurfs: [...state.smurfs, action.payload]
+            };
+        case POST_SMURFS_FAILURE:
             return {
                 ...state, 
                 error: "",
