@@ -1,7 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from 'react-redux';
+
+
 import "./App.css";
-class App extends Component {
-  render() {
+
+
+
+function App (props) {
+
+
+  
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -10,7 +18,13 @@ class App extends Component {
         <div>Have fun!</div>
       </div>
     );
-  }
-}
+  
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    state,
+  }
+};
+
+export default connect(mapStateToProps, null) (App);
